@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ufc/static/css/main.f855e6bc.css",
+    "main.js": "/ufc/static/js/main.50d414f8.js",
+    "static/js/488.b72d8d37.chunk.js": "/ufc/static/js/488.b72d8d37.chunk.js",
+    "static/media/logo.svg": "/ufc/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/ufc/index.html",
+    "main.f855e6bc.css.map": "/ufc/static/css/main.f855e6bc.css.map",
+    "main.50d414f8.js.map": "/ufc/static/js/main.50d414f8.js.map",
+    "488.b72d8d37.chunk.js.map": "/ufc/static/js/488.b72d8d37.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.50d414f8.js"
+  ]
+}
