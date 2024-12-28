@@ -9,6 +9,7 @@
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1"
   },
+  "proxy": "http://127.0.0.1:5000",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
