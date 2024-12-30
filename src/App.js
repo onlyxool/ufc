@@ -1,15 +1,27 @@
 import logo from './logo.svg';
-import Description from './Description';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  const [headerText, setHeaderText] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:5000');
+        const data = await response.json();
+        setHeaderText(data[0].event_name);
+      } catch (error) {
+        console.error('Error fetching header text:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <div className="App" id="intro">
-        <h1>UFC MATCH PREDICTION</h1>
-        <Description /> {/* 使用新组件 */}
-        <ul className="actions">
-          <li><a href="#header" className="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-        </ul>
+    <div>
+
     </div>
   );
 }
