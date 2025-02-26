@@ -1,0 +1,67 @@
+/* 整个 FightCard 卡片的样式 */
+.fight-card {
+  width: auto;               /* 调整卡片宽度 */
+  max-width: 1220px;
+  height: auto;               /* 自动调整高度 */
+  max-height: 300px;
+  padding: 20px;              /* 内边距 */
+  margin: 20px;               /* 外边距 */
+  border: 1px solid #ccc;     /* 边框 */
+  border-radius: 0px;        /* 圆角 */
+  background-color: #f9f9f9;  /* 背景色 */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);  /* 阴影效果 */
+}
+
+/* 调整类别标题的样式 */
+.fight-category {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* 调整选手部分的布局 */
+.fighters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 单个选手卡片的样式 */
+.fighter {
+  text-align: center;
+  width: 45%;                 /* 每个选手占 45% 的宽度 */
+}
+
+/* 调整选手图片的大小和裁剪样式 */
+.fighter-image {
+  width: 210px;               /* 调整图片宽度 */
+  height: 150px;              /* 调整图片高度 */
+  border-radius: 8px;         /* 图片圆角 */
+  object-fit: cover;          /* 图片裁剪 */
+  object-position: top;       /* 聚焦顶部（显示上半身） */
+}
+
+.fight-name, .country {
+  display: inline;
+}
+
+/* 调整选手信息的样式 */
+.country {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.odds {
+  font-size: 16px;
+  color: gray;
+  text-align: center;
+}
+
+/* 调整 VS 的样式 */
+.vs {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
