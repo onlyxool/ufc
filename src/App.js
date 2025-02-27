@@ -9,8 +9,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/event" element={<EventPage />} />
+        <Route path="/ufc" element={<HomePage />} />
+        <Route path="/ufc/event" element={<EventPage />} />
       </Routes>
     </Router>
   );

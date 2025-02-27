@@ -32,9 +32,9 @@ function AppHeader() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (pathname === '/') {
+        if (pathname === '/ufc') {
           ;
-        } else if (pathname === '/event') {
+        } else if (pathname === '/ufc/event') {
           const response = await fetch('https://ufc-prediction-backend-xin1.onrender.com/predict/'+event_path);
           const data = await response.json();
           setEvent_name(data.event_name);
@@ -49,7 +49,7 @@ function AppHeader() {
     fetchData();
   }, []);
 
-  if (pathname === '/') {
+  if (pathname === '/ufc') {
     return (
         <div>
           <br></br>
@@ -60,7 +60,7 @@ Explore the predictions below and see how the model performs!<br/></p>
 
         </div>
     );
-  } else if (pathname === '/event') {
+  } else if (pathname === '/ufc/event') {
     return (
       <header id="header">
         <a id="Recently_Event" href="index.html" className="logo">{Event_name}</a>
