@@ -7,10 +7,10 @@ import EventPage from './EventPage';
 
 function App() {
   return (
-    <Router>
+    <Router basename='/ufc'>
       <Routes>
-        <Route path="/ufc" element={<HomePage />} />
-        <Route path="/ufc/event" element={<EventPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/event" element={<EventPage />} />
       </Routes>
     </Router>
   );
