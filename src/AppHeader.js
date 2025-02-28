@@ -32,7 +32,7 @@ function AppHeader() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (pathname === '/ufc') {
+        if (pathname === '/ufc/' || pathname === '/ufc') {
           ;
         } else if (pathname === '/ufc/event') {
           const response = await fetch('https://ufc-prediction-backend-xin1.onrender.com/predict/'+event_path);
@@ -49,7 +49,7 @@ function AppHeader() {
     fetchData();
   }, []);
 
-  if (pathname === '/ufc') {
+  if (pathname === '/ufc/' || pathname === '/ufc') {
     return (
         <div>
           <br></br>
