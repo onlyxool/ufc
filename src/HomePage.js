@@ -82,8 +82,6 @@ function HomePage() {
 
   useEffect(() => {
     if (wallpaper) {
-
-      console.log(wallpaper);
       document.body.style.backgroundImage = `url(${wallpaper})`;
       document.body.style.setProperty("background-image", `url('${wallpaper}')`, "important");
       document.body.style.backgroundSize = "cover";
