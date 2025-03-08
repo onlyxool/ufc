@@ -1,33 +1,17 @@
-//import { BrowserRouter as Router, Routes, Route, useParams, useSearchParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function AppHeader() {
-  const [isActive, setActive] = useState(false);
-
   const event_path = window.location.href.split('?')[1];
 
   const url = new URL(window.location.href);
   const pathname = url.pathname;
-  const queryString = url.search.substring(1);
+
+  const match = window.location.href.match(/^(https?:\/\/[^/]+\/ufc\/)/);
+  const basePath = match ? match[1] : "";
 
   const [Event_name, setEvent_name] = useState('');
   const [Event_time, setEvent_time] = useState('');
-  const [Event_Link0, setEvent_Link0] = useState('');
-  const [Event_image0, setEvent_image0] = useState('');
-  const [Event_match0, setEvent_match0] = useState('');
-
-  if (pathname === '/') {
-    ;
-  } else if (pathname === '/event') {
-    //const [Event_name, setEvent_name] = useState('');
-    //const [Event_time0, setEvent_time0] = useState('');
-    //const [Event_Link0, setEvent_Link0] = useState('');
-    //const [Event_image0, setEvent_image0] = useState('');
-    //const [Event_match0, setEvent_match0] = useState('');
-  } else {
-
-  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,7 +23,6 @@ function AppHeader() {
           const data = await response.json();
           setEvent_name(data.event_name);
           setEvent_time(data.event_time);
-          setActive(true);
         }
       } catch (error) {
         console.error('Error fetching header text:', error);
@@ -63,7 +46,8 @@ Explore the predictions below and see how the model performs!<br/></p>
   } else if (pathname === '/ufc/event') {
     return (
       <header id="header">
-        <a id="Recently_Event" href="index.html" className="logo">{Event_name}</a>
+        <h3>{Event_time}</h3>
+        <a id="Recently_Event" href={basePath} className="logo">{Event_name}</a>
       </header>
     );
   }

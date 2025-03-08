@@ -4,6 +4,7 @@ import './App.css';
 function HomePage() {
   const [isActive, setActive] = useState(false);
 
+  const [wallpaper, set_wallpaper] = useState('');
   const [Event_name0, setEvent_name0] = useState('');
   const [Event_time0, setEvent_time0] = useState('');
   const [Event_Link0, setEvent_Link0] = useState('');
@@ -39,35 +40,36 @@ function HomePage() {
       try {
         const response = await fetch('https://ufc-prediction-backend-xin1.onrender.com');
         const data = await response.json();
-        setEvent_name0(data[0].event_name);
-        setEvent_time0(data[0].event_time);
-        setEvent_Link0("event?"+data[0].event_path);
-        setEvent_image0(data[0].event_image[1].x1);
-        setEvent_match0(data[0].main_event_red+'     VS     '+data[0].main_event_blue);
+        set_wallpaper(data['wallpaper'][0][0]);
+        setEvent_name0(data['event_list'][0].event_name);
+        setEvent_time0(data['event_list'][0].event_time);
+        setEvent_Link0("event?"+data['event_list'][0].event_path);
+        setEvent_image0(data['event_list'][0].event_image[1].x1);
+        setEvent_match0(data['event_list'][0].main_event_red+'     VS     '+data['event_list'][0].main_event_blue);
 
-        setEvent_name1(data[1].event_name);
-        setEvent_time1(data[1].event_time);
-        setEvent_Link1("event?"+data[1].event_path);
-        setEvent_image1(data[1].event_image[2].x1);
-        setEvent_match1(data[1].main_event_red+'     VS     '+data[1].main_event_blue);
+        setEvent_name1(data['event_list'][1].event_name);
+        setEvent_time1(data['event_list'][1].event_time);
+        setEvent_Link1("event?"+data['event_list'][1].event_path);
+        setEvent_image1(data['event_list'][1].event_image[2].x1);
+        setEvent_match1(data['event_list'][1].main_event_red+'     VS     '+data['event_list'][1].main_event_blue);
 
-        setEvent_name2(data[2].event_name);
-        setEvent_time2(data[2].event_time);
-        setEvent_Link2("event?"+data[2].event_path);
-        setEvent_image2(data[2].event_image[2].x1);
-        setEvent_match2(data[2].main_event_red+'     VS     '+data[2].main_event_blue);
+        setEvent_name2(data['event_list'][2].event_name);
+        setEvent_time2(data['event_list'][2].event_time);
+        setEvent_Link2("event?"+data['event_list'][2].event_path);
+        setEvent_image2(data['event_list'][2].event_image[2].x1);
+        setEvent_match2(data['event_list'][2].main_event_red+'     VS     '+data['event_list'][2].main_event_blue);
 
-        setEvent_name3(data[3].event_name);
-        setEvent_time3(data[3].event_time);
-        setEvent_Link3("event?"+data[3].event_path);
-        setEvent_image3(data[3].event_image[2].x1);
-        setEvent_match3(data[3].main_event_red+'     VS     '+data[3].main_event_blue);
+        setEvent_name3(data['event_list'][3].event_name);
+        setEvent_time3(data['event_list'][3].event_time);
+        setEvent_Link3("event?"+data['event_list'][3].event_path);
+        setEvent_image3(data['event_list'][3].event_image[2].x1);
+        setEvent_match3(data['event_list'][3].main_event_red+'     VS     '+data['event_list'][3].main_event_blue);
 
-        setEvent_name4(data[4].event_name);
-        setEvent_time4(data[4].event_time);
-        setEvent_Link4("event?"+data[4].event_path);
-        setEvent_image4(data[4].event_image[2].x1);
-        setEvent_match4(data[4].main_event_red+'     VS     '+data[4].main_event_blue);
+        setEvent_name4(data['event_list'][4].event_name);
+        setEvent_time4(data['event_list'][4].event_time);
+        setEvent_Link4("event?"+data['event_list'][4].event_path);
+        setEvent_image4(data['event_list'][4].event_image[2].x1);
+        setEvent_match4(data['event_list'][4].main_event_red+'     VS     '+data['event_list'][4].main_event_blue);
 
         setActive(true);
       } catch (error) {
@@ -77,6 +79,20 @@ function HomePage() {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (wallpaper) {
+
+      console.log(wallpaper);
+      document.body.style.backgroundImage = `url(${wallpaper})`;
+      document.body.style.setProperty("background-image", `url('${wallpaper}')`, "important");
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundPosition = "center center";
+      document.body.style.backgroundColor = "transparent";
+      document.body.style.backgroundAttachment = "fixed";
+    }
+  }, [wallpaper]);
 
   return (
     <>
