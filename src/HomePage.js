@@ -40,7 +40,7 @@ function HomePage() {
       try {
         const response = await fetch('https://ufc-prediction-backend-xin1.onrender.com');
         const data = await response.json();
-        set_wallpaper(data['wallpaper'][0][0]);
+        set_wallpaper(data['wallpaper'][0]['x1']);
         setEvent_name0(data['event_list'][0].event_name);
         setEvent_time0(data['event_list'][0].event_time);
         setEvent_Link0("event?"+data['event_list'][0].event_path);
