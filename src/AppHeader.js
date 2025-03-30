@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
-function AppHeader() {
-  const event_path = window.location.href.split('?')[1];
-
+function AppHeader({data}) {
   const url = new URL(window.location.href);
   const pathname = url.pathname;
 
@@ -19,8 +17,6 @@ function AppHeader() {
         if (pathname === '/ufc/' || pathname === '/ufc') {
           ;
         } else if (pathname === '/ufc/event') {
-          const response = await fetch('https://ufc-prediction-backend-xin1.onrender.com/predict/'+event_path);
-          const data = await response.json();
           setEvent_name(data.event_name);
           setEvent_time(data.event_time);
         }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
-function HomePage() {
+function HomePage({data}) {
   const [isActive, setActive] = useState(false);
 
   const [wallpaper, set_wallpaper] = useState('');
@@ -36,48 +36,44 @@ function HomePage() {
   const [Event_match4, setEvent_match4] = useState('');
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://ufc-prediction-backend-xin1.onrender.com');
-        const data = await response.json();
-        set_wallpaper(data['wallpaper'][0]['x1']);
-        setEvent_name0(data['event_list'][0].event_name);
-        setEvent_time0(data['event_list'][0].event_time);
-        setEvent_Link0("event?"+data['event_list'][0].event_path);
-        setEvent_image0(data['event_list'][0].event_image[1].x1);
-        setEvent_match0(data['event_list'][0].main_event_red+'     VS     '+data['event_list'][0].main_event_blue);
+    try {
+      set_wallpaper(data['wallpaper'][0]['x1']);
+      setEvent_name0(data['event_list'][0].event_name);
+      setEvent_time0(data['event_list'][0].event_time);
+      setEvent_Link0("event?"+data['event_list'][0].event_path);
+      setEvent_image0(data['event_list'][0].event_image[1].x1);
+      setEvent_match0(data['event_list'][0].main_event_red+'     VS     '+data['event_list'][0].main_event_blue);
 
-        setEvent_name1(data['event_list'][1].event_name);
-        setEvent_time1(data['event_list'][1].event_time);
-        setEvent_Link1("event?"+data['event_list'][1].event_path);
-        setEvent_image1(data['event_list'][1].event_image[2].x1);
-        setEvent_match1(data['event_list'][1].main_event_red+'     VS     '+data['event_list'][1].main_event_blue);
+      setEvent_name1(data['event_list'][1].event_name);
+      setEvent_time1(data['event_list'][1].event_time);
+      setEvent_Link1("event?"+data['event_list'][1].event_path);
+      setEvent_image1(data['event_list'][1].event_image[2].x1);
+      setEvent_match1(data['event_list'][1].main_event_red+'     VS     '+data['event_list'][1].main_event_blue);
 
-        setEvent_name2(data['event_list'][2].event_name);
-        setEvent_time2(data['event_list'][2].event_time);
-        setEvent_Link2("event?"+data['event_list'][2].event_path);
-        setEvent_image2(data['event_list'][2].event_image[2].x1);
-        setEvent_match2(data['event_list'][2].main_event_red+'     VS     '+data['event_list'][2].main_event_blue);
+      setEvent_name2(data['event_list'][2].event_name);
+      setEvent_time2(data['event_list'][2].event_time);
+      setEvent_Link2("event?"+data['event_list'][2].event_path);
+      setEvent_image2(data['event_list'][2].event_image[2].x1);
+      setEvent_match2(data['event_list'][2].main_event_red+'     VS     '+data['event_list'][2].main_event_blue);
 
-        setEvent_name3(data['event_list'][3].event_name);
-        setEvent_time3(data['event_list'][3].event_time);
-        setEvent_Link3("event?"+data['event_list'][3].event_path);
-        setEvent_image3(data['event_list'][3].event_image[2].x1);
-        setEvent_match3(data['event_list'][3].main_event_red+'     VS     '+data['event_list'][3].main_event_blue);
+      setEvent_name3(data['event_list'][3].event_name);
+      setEvent_time3(data['event_list'][3].event_time);
+      setEvent_Link3("event?"+data['event_list'][3].event_path);
+      setEvent_image3(data['event_list'][3].event_image[2].x1);
+      setEvent_match3(data['event_list'][3].main_event_red+'     VS     '+data['event_list'][3].main_event_blue);
 
-        setEvent_name4(data['event_list'][4].event_name);
-        setEvent_time4(data['event_list'][4].event_time);
-        setEvent_Link4("event?"+data['event_list'][4].event_path);
-        setEvent_image4(data['event_list'][4].event_image[2].x1);
-        setEvent_match4(data['event_list'][4].main_event_red+'     VS     '+data['event_list'][4].main_event_blue);
+      setEvent_name4(data['event_list'][4].event_name);
+      setEvent_time4(data['event_list'][4].event_time);
+      setEvent_Link4("event?"+data['event_list'][4].event_path);
+      setEvent_image4(data['event_list'][4].event_image[2].x1);
+      setEvent_match4(data['event_list'][4].main_event_red+'     VS     '+data['event_list'][4].main_event_blue);
 
-        setActive(true);
-      } catch (error) {
-        console.error('Error fetching header text:', error);
-      }
-    };
+      setActive(true);
 
-    fetchData();
+    } catch (error) {
+      console.error('Error fetching header text:', error);
+    }
+
   }, []);
 
   useEffect(() => {

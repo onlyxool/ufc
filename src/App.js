@@ -4,12 +4,12 @@ import './App.css';
 import HomePage from './HomePage';
 import EventPage from './EventPage';
 
-function App() {
+function App({data}) {
   return (
     <Router basename='/ufc'>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/event" element={<EventPage />} />
+        <Route path="/" element={<HomePage data={data}/>} />
+        <Route path="/event" element={<EventPage data={data}/>} />
       </Routes>
     </Router>
   );
